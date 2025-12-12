@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaaf Finserv</title>
+    <link rel="icon" type="image/jpg" href="Green on Black Minimalist Renewable Energy Logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Green on Black Minimalist Renewable Energy Logo.jpg" alt="GreenLeaaf Logo" class="logo-img">
+                <span class="logo-text">GreenLeaaf</span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li id="customersNavItem"><a href="customers.html">Our Customers</a></li>
+                <li><a href="#" id="loginBtn">Login / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <!-- Login Form -->
+            <div id="loginForm">
+                <div class="modal-header">
+                    <h2>Welcome Back</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="form-container">
+                    <form id="loginFormElement" onsubmit="return handleLogin(event)">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" id="toggleLoginPassword">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-btn">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </button>
+                        <div class="auth-footer">
+                            <p>Don't have an account? <a href="#" id="showRegister">Create Account</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Register Form -->
+            <div id="registerForm" style="display: none;">
+                <div class="modal-header">
+                    <h2>Create Account</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="form-container">
+                    <form id="registerFormElement" onsubmit="return handleRegister(event)">
+                        <div class="form-group">
+                            <label for="regName">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="regName" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="regEmail" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPhone">Phone Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone input-icon"></i>
+                                <input type="tel" id="regPhone" placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="regPassword" placeholder="Create a password" required minlength="6">
+                                <button type="button" class="password-toggle" id="toggleRegPassword">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required>
+                                <button type="button" class="password-toggle" id="toggleRegConfirmPassword">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-btn">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                        <div class="auth-footer">
+                            <p>Already have an account? <a href="#" id="showLogin">Sign In</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="typing-text">Your Financial Success Starts Here</h1>
+                    <div class="taglines">
+                        <p class="tagline" data-text="Guiding your money with clarity, strategy and confidence"></p>
+                    </div>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <div class="container">
+                <h2>Our Mission</h2>
+                <p class="mission-statement">Our mission is to simplify finance and empower your financial independence</p>
+            </div>
+        </section>
+
+        <section class="happy-customers">
+            <div class="container">
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Trusted by 1.2M+ Happy Customers</span>
+                </div>
+                <h2>What Our Customers Say</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">AR</div>
+                            <div class="reviewer-info">
+                                <h4>Arjun R.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"GreenLeaaf transformed my financial planning. Their expert advice helped me save 30% more this year!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">PS</div>
+                            <div class="reviewer-info">
+                                <h4>Priya S.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"The team's investment strategies are exceptional. My portfolio has grown consistently since I joined."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">RM</div>
+                            <div class="reviewer-info">
+                                <h4>Rahul M.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Outstanding customer service! They made complex financial concepts easy to understand and implement."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">SK</div>
+                            <div class="reviewer-info">
+                                <h4>Sunita K.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Best financial decision I made was choosing GreenLeaaf. Their retirement planning is top-notch."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">VP</div>
+                            <div class="reviewer-info">
+                                <h4>Vikram P.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Personalized attention and great investment advice. Exceeded all my expectations!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">AD</div>
+                            <div class="reviewer-info">
+                                <h4>Ananya D.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Their tax planning services saved me a significant amount. Highly recommended!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">NS</div>
+                            <div class="reviewer-info">
+                                <h4>Nikhil S.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Professional, transparent, and results-driven. Couldn't be happier with their services."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">MP</div>
+                            <div class="reviewer-info">
+                                <h4>Meera P.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Excellent financial planning for my small business. They really understand entrepreneurs' needs."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">RS</div>
+                            <div class="reviewer-info">
+                                <h4>Rohan S.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"The team's market insights are invaluable. My investments have never been better managed."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer">
+                            <div class="avatar">AK</div>
+                            <div class="reviewer-info">
+                                <h4>Anjali K.</h4>
+                                <div class="stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>"Trustworthy and reliable. They've been managing my family's wealth for years with great results."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Typewriter effect for the main heading
+            const heading = document.querySelector('.typing-text');
+            const text = heading.textContent;
+            heading.textContent = '';
+            
+            let i = 0;
+            function typeHeading() {
+                if (i < text.length) {
+                    heading.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeHeading, 50);
+                } else {
+                    // Start animating the taglines after the heading is done
+                    animateTaglines();
+                }
+            }
+            
+            // Animate taglines one by one
+            function animateTaglines() {
+                const taglines = document.querySelectorAll('.tagline');
+                let index = 0;
+                
+                function showNextTagline() {
+                    if (index < taglines.length) {
+                        const tagline = taglines[index];
+                        const text = tagline.getAttribute('data-text');
+                        tagline.textContent = '';
+                        tagline.style.opacity = '1';
+                        
+                        let j = 0;
+                        function typeTagline() {
+                            if (j < text.length) {
+                                tagline.textContent += text.charAt(j);
+                                j++;
+                                setTimeout(typeTagline, 30);
+                            } else {
+                                index++;
+                                setTimeout(showNextTagline, 500);
+                            }
+                        }
+                        
+                        typeTagline();
+                    } else {
+                        // Show the CTA button after all taglines are shown
+                        document.querySelector('.cta-button').style.opacity = '1';
+                        document.querySelector('.cta-button').style.transform = 'translateY(0)';
+                    }
+                }
+                
+                showNextTagline();
+            }
+            
+            // Start the animation when the page loads
+            window.addEventListener('load', () => {
+                setTimeout(typeHeading, 500);
+            });
+        </script>
+
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Personalized Wealth Strategies</h3>
+                    <p>Built around your unique financial goals and aspirations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Comprehensive Financial Planning</h3>
+                    <p>For long-term security and peace of mind.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Investment Guidance</h3>
+                    <p>Designed to balance growth and stability for your portfolio.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Business Financial Insights</h3>
+                    <p>Turning financial challenges into growth opportunities.</p>
+                </div>
+            </div>
+            <div class="services-contact-prompt">
+                <p>For more details, contact our advisory team today to discuss how we can help you achieve your financial goals.</p>
+                <a href="#contact" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <div class="container">
+                <h2>Why Trust Us</h2>
+                <div class="trust-grid">
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Expert Guidance</h3>
+                        <p>Expert advice backed by years of market experience</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Transparent & Ethical</h3>
+                        <p>Transparent, ethical, and client-first advisory—every step of the way</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="trust-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Your Success Matters</h3>
+                        <p>Your financial well-being is our highest priority</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>GreenLeaaf Finserv is a leading financial advisory firm committed to helping individuals and businesses achieve financial success through expert guidance and personalized strategies.</p>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="contact-info-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>
+                            <a href="tel:3220319982" class="phone-link">
+                                <i class="fas fa-phone-alt"></i> +91 32203 19982
+                            </a>
+                            <br>
+                            <a href="tel:6291001108" class="phone-link secondary">
+                                <i class="fas fa-phone-alt"></i> +91 62910 01108 (Secondary)
+                            </a>
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info.greenleaaf@gmail.com">info.greenleaaf@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61585127092904" target="_blank" rel="noopener noreferrer" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Address</h3>
+                        <p>
+                            <a href="https://maps.app.goo.gl/eD5GG6Y1Y7PA3mYv8" target="_blank" rel="noopener noreferrer" class="address-link">
+                                <i class="fas fa-map-marker-alt"></i> 223 Egra<br>721429, East Medinipur, WB:Ind
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GreenLeaaf Finserv. All rights reserved.</p>
+    </footer>
+
+    <!-- Contact form handling will be done without EmailJS -->
+    <!-- Fullscreen Advertisements Overlay -->
+    <div id="fullscreenAdOverlay" class="fullscreen-ad-overlay">
+        <div class="fullscreen-ad-container">
+            <div class="fullscreen-ad-header">
+                <h2>Featured Financial Products</h2>
+                <button id="closeAdOverlay" class="close-ad-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="fullscreen-ad-content" id="adContainer">
+                <!-- Ads will be dynamically inserted here -->
+            </div>
+            <div class="fullscreen-ad-footer">
+                <p class="ad-notice">Log in to access premium financial services and remove these ads</p>
+                <button id="continueToSite" class="continue-btn">Continue to Site</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Fullscreen Ad Overlay */
+        .fullscreen-ad-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .fullscreen-ad-overlay.visible {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .fullscreen-ad-container {
+            width: 90%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fullscreen-ad-header {
+            padding: 20px 30px;
+            background: #27ae60;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .fullscreen-ad-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .close-ad-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .close-ad-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .fullscreen-ad-content {
+            padding: 30px;
+            overflow-y: auto;
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .ad-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ad-card h3 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .ad-card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+        
+        .ad-cta {
+            display: inline-block;
+            background: #27ae60;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .ad-cta:hover {
+            background: #219653;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+        }
+        
+        .fullscreen-ad-footer {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .ad-notice {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .continue-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .continue-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+    </style>
+
+    <script>
+        // Financial advertisements data
+        const advertisements = [
+            {
+                title: "High-Interest Savings Account",
+                description: "Earn up to 3.5% APY on your savings with our premium account. Start saving today!",
+                cta: "Learn More",
+                link: "#"
+            },
+            {
+                title: "Investment Portfolio Management",
+                description: "Let our experts manage your investments with personalized portfolio strategies.",
+                cta: "Get Started",
+                link: "#"
+            },
+            {
+                title: "Low-Interest Personal Loan",
+                description: "Need funds? Get a personal loan starting at 6.99% APR. Quick approval process.",
+                cta: "Apply Now",
+                link: "#"
+            },
+            {
+                title: "Retirement Planning",
+                description: "Plan your golden years with our comprehensive retirement solutions.",
+                cta: "Plan Now",
+                link: "#"
+            },
+            {
+                title: "Credit Card Rewards",
+                description: "Earn 2% cash back on all purchases with our premium credit card.",
+                cta: "Apply Today",
+                link: "#"
+            },
+            {
+                title: "Home Loan Special",
+                description: "Get pre-approved for a home loan with rates as low as 3.25% APR.",
+                cta: "Check Rates",
+                link: "#"
+            }
+        ];
+
+        // Function to display random ads in fullscreen overlay
+        function displayRandomAds() {
+            const adContainer = document.getElementById('adContainer');
+            const adOverlay = document.getElementById('fullscreenAdOverlay');
+            if (!adContainer || !adOverlay) return;
+
+            // Clear existing ads
+            adContainer.innerHTML = '';
+
+            // Get all ads (show more in fullscreen)
+            const randomAds = [...advertisements]
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 4); // Show more ads in fullscreen view
+
+            // Create and append ad cards
+            randomAds.forEach(ad => {
+                const adCard = document.createElement('div');
+                adCard.className = 'ad-card';
+                adCard.innerHTML = `
+                    <h3>${ad.title}</h3>
+                    <p>${ad.description}</p>
+                    <a href="${ad.link}" class="ad-cta">${ad.cta}</a>
+                `;
+                adContainer.appendChild(adCard);
+            });
+
+            // Show ad overlay if user is not logged in and auth modal is not open
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const authModal = document.getElementById('authModal');
+            const isAuthModalOpen = authModal && window.getComputedStyle(authModal).display !== 'none';
+            
+            if (!currentUser && !isAuthModalOpen) {
+                // Prevent scrolling of the background content
+                document.body.style.overflow = 'hidden';
+                // Show the overlay after a short delay
+                setTimeout(() => {
+                    // Check again if auth modal hasn't been opened while we were waiting
+                    const currentAuthModalState = document.getElementById('authModal') && 
+                                               window.getComputedStyle(document.getElementById('authModal')).display !== 'none';
+                    if (!currentAuthModalState) {
+                        adOverlay.style.display = 'flex';
+                        // Trigger the fade-in effect
+                        setTimeout(() => adOverlay.classList.add('visible'), 10);
+                        
+                        // Set up auto-refresh of ads every 10 seconds
+                        if (window.adRefreshInterval) {
+                            clearInterval(window.adRefreshInterval);
+                        }
+                        window.adRefreshInterval = setInterval(displayRandomAds, 10000);
+                    }
+                }, 1000); // Show after 1 second
+            }
+        }
+
+        // Handle contact form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    
+                    // Form submission logic without EmailJS
+                    // You can replace this with your own form submission logic
+                    setTimeout(() => {
+                        showMessage('Your message has been received! We will get back to you soon.', 'success');
+                        this.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    }, 1000);
+                });
+            }
+        });
+
+        // Authentication functions
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return false;
+            }
+            
+            // Get existing users or initialize empty array
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Check if user already exists
+            if (users.some(user => user.email === email)) {
+                alert('Email already registered!');
+                return false;
+            }
+            
+            // Add new user with join date
+            users.push({ 
+                name, 
+                email, 
+                phone, 
+                password, 
+                isActive: true, // Set default status to active
+                joinDate: new Date().toISOString(),
+                lastLogin: null
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'alert alert-success';
+            successMsg.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>Registration successful! Redirecting to login...</span>
+            `;
+            document.querySelector('.form-container').prepend(successMsg);
+            
+            // Clear form
+            document.getElementById('registerFormElement').reset();
+            
+            // Redirect to login after 1.5 seconds
+            setTimeout(() => {
+                // Switch to login form
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'block';
+                
+                // Pre-fill the email in the login form
+                document.getElementById('loginEmail').value = email;
+                document.getElementById('loginPassword').focus();
+                
+                // Remove the success message
+                successMsg.remove();
+                
+                // Show login success message
+                const loginSuccessMsg = document.createElement('div');
+                loginSuccessMsg.className = 'alert alert-success';
+                loginSuccessMsg.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>Please login with your new account</span>
+                `;
+                document.querySelector('#loginForm .form-container').prepend(loginSuccessMsg);
+                
+                // Remove the login success message after 3 seconds
+                setTimeout(() => {
+                    loginSuccessMsg.classList.add('fade-out');
+                    setTimeout(() => loginSuccessMsg.remove(), 300);
+                }, 3000);
+                
+            }, 1500);
+            
+            return false;
+        }
+        
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Find user by email
+            const user = users.find(u => u.email === email);
+            
+            if (user && user.password === password) {
+                // Set admin status - only true for info.greenleaaf@gmail.com
+                const isAdmin = email.toLowerCase() === 'info.greenleaaf@gmail.com';
+            
+                // Update last login time and admin status
+                user.lastLogin = new Date().toISOString();
+                user.isAdmin = isAdmin;
+                const userIndex = users.findIndex(u => u.email === email);
+                users[userIndex] = user;
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Set current user session with admin status
+                const userData = {
+                    name: user.name,
+                    email: user.email,
+                    isAdmin: isAdmin
+                };
+                localStorage.setItem('currentUser', JSON.stringify(userData));
+                
+                // Show success message with a nice animation
+                const successMsg = document.createElement('div');
+                successMsg.className = 'alert alert-success';
+                successMsg.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>Welcome back, ${user.name}! Refreshing...</span>
+                `;
+                document.body.appendChild(successMsg);
+                
+                // Update navigation after successful login
+                updateNavigation();
+                
+                // Close the modal
+                document.getElementById('authModal').style.display = 'none';
+                
+                // Refresh the page after 1.5 seconds to show updated UI
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
+                
+                return true;
+            } else {
+                // Show error message with animation
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'alert alert-error';
+                errorMsg.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Invalid email or password. Please try again.</span>
+                `;
+                document.querySelector('.form-container').prepend(errorMsg);
+                
+                // Remove error message after 3 seconds
+                setTimeout(() => {
+                    errorMsg.classList.add('fade-out');
+                    setTimeout(() => errorMsg.remove(), 300);
+                }, 3000);
+                
+                return false;
+            }
+        }
+        
+        // Function to update navigation based on user status
+        function updateNavigation() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const loginBtn = document.getElementById('loginBtn');
+            const customersNavItem = document.getElementById('customersNavItem');
+            const userNav = document.getElementById('userNav');
+            const userNameSpan = document.getElementById('userName');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const adSection = document.querySelector('.ad-section');
+
+            // Show/hide ads based on login status
+            const adOverlay = document.getElementById('fullscreenAdOverlay');
+            if (adOverlay) {
+                if (currentUser) {
+                    // If user logs in, hide the overlay
+                    adOverlay.classList.remove('visible');
+                    document.body.style.overflow = ''; // Re-enable scrolling
+                    setTimeout(() => {
+                        adOverlay.style.display = 'none';
+                    }, 500);
+                } else if (!adOverlay.classList.contains('visible')) {
+                    // If not logged in and overlay not already shown
+                    document.body.style.overflow = 'hidden'; // Disable scrolling
+                    adOverlay.style.display = 'flex';
+                    setTimeout(() => adOverlay.classList.add('visible'), 10);
+                }
+            }
+
+            if (currentUser && currentUser.email) {
+                // User is logged in - Update login button to show user's name
+                if (loginBtn) {
+                    loginBtn.innerHTML = `
+                        <i class="fas fa-user"></i> 
+                        <span>${currentUser.name?.split(' ')[0] || 'User'}</span>
+                    `;
+                    loginBtn.setAttribute('title', 'View Profile');
+                }
+                
+                // Show customers link only for info.greenleaaf@gmail.com
+                if (customersNavItem) {
+                    customersNavItem.style.display = (currentUser.email && currentUser.email.toLowerCase() === 'info.greenleaaf@gmail.com') ? 'block' : 'none';
+                }
+                
+                // Show logout button
+                if (logoutBtn) {
+                    logoutBtn.style.display = 'block';
+                }
+            } else {
+                // User is not logged in - Show login/register text
+                if (loginBtn) {
+                    loginBtn.innerHTML = 'Login / Register';
+                    loginBtn.removeAttribute('title');
+                }
+                
+                // Hide customers link
+                if (customersNavItem) {
+                    customersNavItem.style.display = 'none';
+                }
+                
+                // Hide logout button
+                if (logoutBtn) {
+                    logoutBtn.style.display = 'none';
+                }
+            }
+        }
+        
+        // Handle ad overlay close button and continue button
+        document.addEventListener('click', function(e) {
+            const adOverlay = document.getElementById('fullscreenAdOverlay');
+            
+            // Close button
+            if (e.target.closest('#closeAdOverlay') || e.target.closest('#continueToSite')) {
+                if (adOverlay) {
+                    adOverlay.classList.remove('visible');
+                    // Re-enable scrolling
+                    document.body.style.overflow = '';
+                    // Hide completely after transition
+                    setTimeout(() => {
+                        adOverlay.style.display = 'none';
+                    }, 500);
+                }
+            }
+        });
+
+        // Call on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize navigation
+            updateNavigation();
+            // Display random ads for non-logged-in users
+            displayRandomAds();
+            
+            // Rest of your existing DOMContentLoaded code
+        }); // Close the DOMContentLoaded event listener
+
+        // Toggle password visibility
+        function togglePassword(inputId, toggleBtn) {
+            const input = document.getElementById(inputId);
+            const icon = toggleBtn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Add focus class to form groups
+        function setupFormInputs() {
+            const inputs = document.querySelectorAll('.form-group input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.closest('.form-group').classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (!this.value) {
+                        this.closest('.form-group').classList.remove('focused');
+                    }
+                });
+                
+                // Set initial state
+                if (input.value) {
+                    input.closest('.form-group').classList.add('focused');
+                }
+            });
+            
+            // Password toggle functionality
+            const toggleLoginBtn = document.getElementById('toggleLoginPassword');
+            if (toggleLoginBtn) {
+                toggleLoginBtn.addEventListener('click', () => togglePassword('loginPassword', toggleLoginBtn));
+            }
+            
+            const toggleRegBtn = document.getElementById('toggleRegPassword');
+            if (toggleRegBtn) {
+                toggleRegBtn.addEventListener('click', () => togglePassword('regPassword', toggleRegBtn));
+            }
+            
+            const toggleRegConfirmBtn = document.getElementById('toggleRegConfirmPassword');
+            if (toggleRegConfirmBtn) {
+                toggleRegConfirmBtn.addEventListener('click', () => togglePassword('regConfirmPassword', toggleRegConfirmBtn));
+            }
+        }
+
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('authModal');
+            const btn = document.getElementById('loginBtn');
+            const spans = document.getElementsByClassName('close');
+            const showRegister = document.getElementById('showRegister');
+            const showLogin = document.getElementById('showLogin');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            
+            // Initialize form inputs
+            setupFormInputs();
+            
+            // Check if user is already logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+            if (currentUser) {
+                btn.textContent = `Welcome, ${currentUser.name.split(' ')[0]}`;
+                btn.href = '#';
+                btn.onclick = function() {
+                    if (confirm('Do you want to logout?')) {
+                        localStorage.removeItem('currentUser');
+                        btn.textContent = 'Login / Register';
+                        btn.onclick = function() { modal.style.display = 'block'; };
+                    }
+                };
+            } else {
+                btn.onclick = function() { modal.style.display = 'block'; };
+            }
+            
+            // Close modal when clicking on any close button
+            Array.from(spans).forEach(span => {
+                span.onclick = function() {
+                    modal.style.display = 'none';
+                };
+            });
+            
+            showRegister.onclick = function(e) {
+                e.preventDefault();
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            };
+            
+            showLogin.onclick = function(e) {
+                e.preventDefault();
+                registerForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            };
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            };
+        });
+    </script>
+</body>
+</html>
